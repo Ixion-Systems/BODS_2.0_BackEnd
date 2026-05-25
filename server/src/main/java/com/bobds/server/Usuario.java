@@ -3,14 +3,20 @@ package com.bobds.server;
 
   public class Usuario {
 
-      @JsonProperty("nombre")
-      private String nombre;
+    @JsonProperty("nombre")
+    private String nombre;
 
-      @JsonProperty("password")
-      private String password;
+    @JsonProperty("password")
+    private String password;
 
-      @JsonProperty("email")
-      private String email;
+    @JsonProperty("email")
+    private String email;
+
+    @JsonProperty("verificado")
+    private boolean verificado = false;
+
+    @JsonProperty("tokenVerificacion")
+    private String tokenVerificacion;
 
       public Usuario() {
       }
@@ -76,6 +82,19 @@ package com.bobds.server;
       public void setEmail(String email) {
           this.email = email;
       }
+
+    public boolean isVerificado() { 
+        return verificado; 
+        }
+    public void setVerificado(boolean verificado) { 
+            this.verificado = verificado;
+        }
+    public String getTokenVerificacion() { 
+            return tokenVerificacion; 
+        }
+    public void setTokenVerificacion(String token) { 
+            this.tokenVerificacion = token; 
+        }
 
       @Override
       public String toString() {

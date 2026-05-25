@@ -43,4 +43,13 @@ public class AuthController {
         }
         return ResponseEntity.ok(result);
     }
+    
+    @GetMapping("/verify")
+    public ResponseEntity<String> verify(@RequestParam String token) {
+        String result = usuarioEntrada.verificarEmail(token);
+        if (result.startsWith("Error")) {
+            return ResponseEntity.badRequest().body(result);
+        }
+        return ResponseEntity.ok(result);
+    }
 }
